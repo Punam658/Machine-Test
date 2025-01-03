@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Certificate Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container" id="formContainer">
+            <form id="userForm">
+                <div class="form-group">
+                    <label>1. Name (text-field)</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Photo (upload)</label>
+                    <input type="file" id="photo" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Rank (drop-down)</label>
+                    <select id="rank" required>
+                        <option value="">Select Rank</option>
+                        <option value="First Rank">First Rank</option>
+                        <option value="Second Rank">Second Rank</option>
+                        <option value="Third Rank">Third Rank</option>
+                    </select>
+                </div>
+
+                <button type="submit">Generate Certificate</button>
+            </form>
+        </div>
+
+        <div class="certificate" id="certificate">
+            <div class="certificate-content">
+                <div class="photo-container" id="photoPreview">
+                    User Photo
+                </div>
+                <div class="certificate-details">
+                    <div class="certificate-id" id="certificateID">ID: #000000</div>
+                    <div class="user-name">User Name: <span id="userName"></span></div>
+                    <div class="congratulations">
+                        <strong>Congratulations!!</strong> You have secured 
+                        <strong><span id="userRank"></span></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-container" id="buttonContainer">
+            <button onclick="downloadPDF()">Download Certificate as PDF</button>
+            <button onclick="generateNewCertificate()" style="background-color: #10b981;">Generate New Certificate</button>
+        </div>
+    </div>
+</body>
+</html>
